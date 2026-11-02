@@ -9,8 +9,8 @@ public class Relogio2D {
     private final Ponteiro horas = new Ponteiro(0.50f, 0.045f);
     private final Ponteiro minutos = new Ponteiro(0.70f, 0.027f);
     private final Ponteiro segundos = new Ponteiro(0.82f, 0.012f);
-    private Tema tema = Tema.CLARO;
-    private boolean antiHorario;
+    private volatile Tema tema = Tema.CLARO;
+    private volatile boolean antiHorario;
 
     public void desenhar(GL2 gl, int tamanhoViewport) {
         float[] face = tema.getMostrador();

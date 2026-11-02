@@ -3,9 +3,9 @@ package main.iluminacao;
 import com.jogamp.opengl.GL2;
 
 public class Luz {
-    private float x = 2.0f;
-    private float y = 3.0f;
-    private float z = 4.0f;
+    private volatile float x = 2.0f;
+    private volatile float y = 3.0f;
+    private volatile float z = 4.0f;
 
     public void aplicar(GL2 gl) {
         float[] ambiente = {0.2f, 0.2f, 0.2f, 1.0f};

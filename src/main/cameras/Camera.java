@@ -4,9 +4,9 @@ import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.glu.GLU;
 
 public class Camera {
-    private float yawOffset;
-    private float pitchOffset;
-    private float zoom = 1.0f;
+    private volatile float yawOffset;
+    private volatile float pitchOffset;
+    private volatile float zoom = 1.0f;
 
     public void configurarProjecao(GL2 gl, GLU glu, float aspectRatio) {
         gl.glMatrixMode(GL2.GL_PROJECTION);

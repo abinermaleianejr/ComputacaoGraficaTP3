@@ -1,8 +1,8 @@
 package main.relogio;
 
 public class Ponteiro {
-    private float comprimento;
-    private float espessura;
+    private volatile float comprimento;
+    private volatile float espessura;
 
     public Ponteiro(float comprimento, float espessura) {
         this.comprimento = Math.max(0.1f, Math.min(comprimento, 0.9f));

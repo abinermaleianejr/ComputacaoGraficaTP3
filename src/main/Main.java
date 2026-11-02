@@ -37,7 +37,7 @@ public class Main implements GLEventListener {
     private final List<Camera> cameras = new ArrayList<>();
     private JFrame frame;
     private FPSAnimator animator;
-    private Camera camera;
+    private volatile Camera camera;
     private float distance = 2.0f;
     private float travelDirection = -1.0f;
     private float rotation;

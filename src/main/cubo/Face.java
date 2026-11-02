@@ -8,7 +8,7 @@ public class Face {
     private final float[][] vertices;
     private final float[] cor;
     private final boolean texturizada;
-    private boolean visivel = true;
+    private volatile boolean visivel = true;
 
     public Face(String nome, float[] normal, float[][] vertices, float[] cor, boolean texturizada) {
         this.nome = nome;
