@@ -11,7 +11,7 @@ Instale um JDK 17 ou superior e o Gradle. Na raiz do projeto:
 gradle run
 ```
 
-O Gradle descarrega automaticamente JOGL e GlueGen do Maven Central. A
+O Gradle descarrega automaticamente JOGL e GlueGen do repositorio JogAmp. A
 textura de rede e criada pela aplicacao, pelo que nao e necessario um ficheiro
 de imagem externo.
 

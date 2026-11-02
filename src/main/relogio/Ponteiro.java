@@ -5,9 +5,8 @@ public class Ponteiro {
     private float espessura;
 
     public Ponteiro(float comprimento, float espessura) {
-        this.comprimento = comprimento;
-        this.espessura = espessura;
-        limitar(1.0f);
+        this.comprimento = Math.max(0.1f, Math.min(comprimento, 0.9f));
+        this.espessura = Math.max(0.005f, Math.min(espessura, 0.1f));
     }
 
     public void desenhar(com.jogamp.opengl.GL2 gl, float angulo, float raioEmPixeis,

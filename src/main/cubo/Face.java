@@ -1,6 +1,5 @@
 package main.cubo;
 
-import com.jogamp.opengl.GL;
 import com.jogamp.opengl.GL2;
 
 public class Face {

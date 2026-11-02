@@ -67,7 +67,7 @@ public class ShaderLoader {
         int[] length = new int[1];
         gl.glGetShaderiv(shader, GL2.GL_INFO_LOG_LENGTH, length, 0);
         byte[] log = new byte[Math.max(length[0], 1)];
-        gl.glGetShaderInfoLog(shader, log.length, length, log, 0);
+        gl.glGetShaderInfoLog(shader, log.length, length, 0, log, 0);
         return new String(log, 0, Math.max(0, length[0]), StandardCharsets.UTF_8);
     }
 
@@ -75,7 +75,7 @@ public class ShaderLoader {
         int[] length = new int[1];
         gl.glGetProgramiv(program, GL2.GL_INFO_LOG_LENGTH, length, 0);
         byte[] log = new byte[Math.max(length[0], 1)];
-        gl.glGetProgramInfoLog(program, log.length, length, log, 0);
+        gl.glGetProgramInfoLog(program, log.length, length, 0, log, 0);
         return new String(log, 0, Math.max(0, length[0]), StandardCharsets.UTF_8);
     }
 }

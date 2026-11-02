@@ -18,13 +18,10 @@ import main.iluminacao.Luz;
 import main.input.KeyboardInput;
 import main.input.MouseInput;
 import main.relogio.Relogio2D;
-import main.relogio.Tema;
-import main.util.TextureLoader;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -139,23 +136,30 @@ public class Main implements GLEventListener {
     private void desenharRelogio(GL2 gl, int width, int height) {
         gl.glViewport(0, 0, width, height);
         gl.glDisable(GL.GL_DEPTH_TEST);
+        gl.glEnable(GL.GL_SCISSOR_TEST);
+        gl.glScissor(0, 0, width, height);
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluOrtho2D(-1.15, 1.15, -1.15, 1.15);
+        double aspect = width / (double) Math.max(height, 1);
+        glu.gluOrtho2D(-1.15, 1.15, -1.15 / aspect, 1.15 / aspect);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
 
         gl.glClearColor(relogio.getTema().getFundo(0), relogio.getTema().getFundo(1),
                 relogio.getTema().getFundo(2), 1.0f);
         gl.glClear(GL.GL_COLOR_BUFFER_BIT);
+        gl.glDisable(GL.GL_SCISSOR_TEST);
         relogio.desenhar(gl, Math.min(width, height));
         gl.glEnable(GL.GL_DEPTH_TEST);
     }
 
     private void desenharCena(GL2 gl, int x, int width, int height) {
         gl.glViewport(x, 0, Math.max(width, 1), height);
+        gl.glEnable(GL.GL_SCISSOR_TEST);
+        gl.glScissor(x, 0, Math.max(width, 1), height);
         gl.glClearColor(0.08f, 0.09f, 0.12f, 1.0f);
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
+        gl.glDisable(GL.GL_SCISSOR_TEST);
         camera.configurarProjecao(gl, glu, Math.max(width, 1) / (float) Math.max(height, 1));
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
