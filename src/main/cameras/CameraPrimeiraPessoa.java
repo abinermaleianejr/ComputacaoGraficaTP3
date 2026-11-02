@@ -8,6 +8,6 @@ public class CameraPrimeiraPessoa extends Camera {
 
     @Override
     protected float[] getTarget(float movingCubeX) {
-        return new float[]{movingCubeX + 2.0f, 0.0f, 0.0f};
+        return new float[]{-movingCubeX, 0.0f, 0.0f};
     }
 }

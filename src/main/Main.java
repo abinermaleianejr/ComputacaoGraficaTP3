@@ -136,6 +136,8 @@ public class Main implements GLEventListener {
     private void desenharRelogio(GL2 gl, int width, int height) {
         gl.glViewport(0, 0, width, height);
         gl.glDisable(GL.GL_DEPTH_TEST);
+        gl.glDisable(GL2.GL_LIGHTING);
+        gl.glDisable(GL2.GL_TEXTURE_2D);
         gl.glEnable(GL.GL_SCISSOR_TEST);
         gl.glScissor(0, 0, width, height);
         gl.glMatrixMode(GL2.GL_PROJECTION);
